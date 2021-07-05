@@ -40,6 +40,7 @@ app.whenReady().then(() => {
 
   if (minToTray) {
     createTray()
+    app.dock.hide()
   }
 
   // this must be set after window has been created on ubuntu 18.04
@@ -90,8 +91,10 @@ ipcMain.on('onBreak', (event, arg) => {
 ipcMain.on('toggle-minToTray', (event, arg) => {
   if (arg) {
     createTray()
+    app.dock.hide()
   } else {
     tray.destroy()
+    app.dock.show()
   }
 })
 
@@ -162,13 +165,13 @@ function createTray() {
   const contextMenu = electron.Menu.buildFromTemplate([
     {
       label: 'View',
-      click: function() {
+      click: function () {
         toggleWindow()
       }
     },
     {
       label: 'Exit',
-      click: function() {
+      click: function () {
         app.isQuiting = true
         app.quit()
       }
