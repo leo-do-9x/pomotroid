@@ -14,6 +14,7 @@ import { init as websocketInit } from './sockets'
 
 const electron = require('electron')
 const path = require('path')
+const AutoLaunch = require('auto-launch')
 const localStore = createLocalStore()
 
 /**
@@ -251,3 +252,19 @@ app.on('ready', () => {
   if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
 })
  */
+
+// Auto-launch
+const pomotroidAutoLauncher = new AutoLaunch({
+  name: 'Pomotroid',
+  path: '/Applications/Pomotroid.app'
+})
+
+pomotroidAutoLauncher.enable()
+
+pomotroidAutoLauncher.isEnabled()
+  .then(function (isEnabled) {
+    if (isEnabled) {
+      return
+    }
+    pomotroidAutoLauncher.enable()
+  })
