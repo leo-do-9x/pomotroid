@@ -166,13 +166,13 @@ function createTray() {
   const contextMenu = electron.Menu.buildFromTemplate([
     {
       label: 'View',
-      click: function () {
+      click: function() {
         toggleWindow()
       }
     },
     {
       label: 'Exit',
-      click: function () {
+      click: function() {
         app.isQuiting = true
         app.quit()
       }
@@ -261,10 +261,9 @@ const pomotroidAutoLauncher = new AutoLaunch({
 
 pomotroidAutoLauncher.enable()
 
-pomotroidAutoLauncher.isEnabled()
-  .then(function (isEnabled) {
-    if (isEnabled) {
-      return
-    }
-    pomotroidAutoLauncher.enable()
-  })
+pomotroidAutoLauncher.isEnabled().then(function(isEnabled) {
+  if (isEnabled) {
+    return
+  }
+  pomotroidAutoLauncher.enable()
+})

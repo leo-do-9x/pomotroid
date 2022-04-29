@@ -85,6 +85,7 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
+    "auto-launch": "^5.0.5",
     "node-notifier": "^8.0.1",
     "vue": "^2.6.12",
     "vue-electron": "^1.0.6",
