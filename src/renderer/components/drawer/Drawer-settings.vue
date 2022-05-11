@@ -93,13 +93,6 @@
         @input="shortcut => setGlobalShortcut('call-timer-reset', shortcut)"
       />
     </div>
-    <div class="Setting-wrapper">
-      <p class="Setting-title">Skip Round</p>
-      <shortcut-input
-        :value="globalShortcuts['call-timer-skip']"
-        @input="shortcut => setGlobalShortcut('call-timer-skip', shortcut)"
-      />
-    </div>
   </div>
 </template>
 
