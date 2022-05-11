@@ -27,7 +27,8 @@ function generateSettings() {
     timeShortBreak: 5,
     timeWork: 25,
     volume: 100,
-    globalShortcuts: { // If new shortcuts are added, the migrations of this should be handled
+    globalShortcuts: {
+      // If new shortcuts are added, the migrations of this should be handled
       'call-timer-toggle': 'Control+F1',
       'call-timer-reset': 'Control+F2',
       'call-timer-skip': 'Control+F3'
@@ -144,7 +145,7 @@ export function userDir() {
   try {
     path = (electron.app || electron.remote.app).getPath('userData')
   } catch (error) {
-    logger.errror('failed to get user direoctory', error)
+    logger.error('failed to get user directory', error)
   }
   return path
 }
