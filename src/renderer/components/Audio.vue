@@ -34,6 +34,9 @@ export default {
     // store getters
     currentRound() {
       return this.$store.getters.currentRound
+    },
+    volume() {
+      return this.$store.getters.volume * 0.01
     }
   },
 
